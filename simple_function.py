@@ -18,8 +18,7 @@ import subprocess as sb
 r = sr.Recognizer()
 
 #Variable list - Add values to the dictionary
-#alarm_list = {1: '16:13', 2: '16:15'} #Delete after test
-#alarm_list = {} #Prod purpose
+#alarm_list = {1: '06:15', 2: '12:15', 3: '16:15', 4: '20:15'} #Delete after test
 
 global RightAns
 # Check time for every second
@@ -39,11 +38,12 @@ def ReadTime():
     print(time_hrmn)
     return str(time_hrmn)
 
+"""#TO-DO
 #Set alarm time - Change to different module
 def Set_Alm_Time():
     Alm_tim = input("Enter the alarm time in 24-Hour (HH:MM) format: ")
     if (Alm_tim not in alarm_list.values):
-        alarm_list.update({(len(alarm_list)+1): Alm_tim})
+        alarm_list.update({(len(alarm_list)+1): Alm_tim})"""
 
 #Listen for the answer
 def ListAns():
@@ -83,7 +83,7 @@ def playAlarm(name, num):
         ReadTime()
     
 def PlayQues():
-    Ques = "Who are you buddy?"    
+    Ques = "Say 'Hello', to stop the alarm my friend!"    
     ttsQues = gTTS(text  = Ques,  lang='en')
     ttsQues.save('Ques.mp3')
     sb.call(["afplay","Ques.mp3"])
@@ -91,9 +91,9 @@ def PlayQues():
 
 def AnswerList():
     if('hello' in ListAns()):
-        ttsCong = gTTS(text  = 'Congratulations!',  lang='en')
-        ttsCong.save('Congratulations.mp3')
-        sb.call(["afplay","Congratulations.mp3"])
+        ttsGJ = gTTS(text  = 'Good Job, buddy!',  lang='en')
+        ttsGJ.save('Good_job.mp3')
+        sb.call(["afplay","Good_job.mp3"])
         time.sleep(30)
     else:
         ttsPls = gTTS(text  = 'Please state your answer correctly!',  lang='en')
@@ -101,6 +101,8 @@ def AnswerList():
         sb.call(["afplay","Please_Repeat.mp3"])
         PlayQues()
 
-#Function to  call the alarm app
+
+"""#Function to  call the alarm app
+#Example Function call
 alarm_list = {1: '16:26', 2: '16:24'} #Delete after test
-AlertAlarm(alarm_list, "Muthu")
+AlertAlarm(alarm_list, "Muthu")""""
