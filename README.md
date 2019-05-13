@@ -1,5 +1,5 @@
 # SophisClock
-A TTS and SpeechRecognition Alarm Clock
+A Speech Recognition and Text-To-Speech Alarm Clock
 <H1> Requirements... </H1>
 <br></br>
 The program uses SpeechRecognition and Text-To-Speech, so please install the following dependencies:
